@@ -1,9 +1,9 @@
 #!/usr/bin/env python
-'''
+"""
 Created on May 2, 2013
 
 @author: David I. Urbina
-'''
+"""
 
 # imports
 import sys
@@ -18,7 +18,7 @@ __version__ = 2.0
 
 
 def _process_cmd_line(argv):
-    '''
+    """
     usage: sigpath.py [-h] -p dump [dump ...] [-n dump] [-v value [value ...]]
                   [-t {string,number}]
 
@@ -32,7 +32,7 @@ def _process_cmd_line(argv):
     value scanning:
       -v value [value ...]  memory dumps' corresponding values
       -t {string,number}    possible encodings
-    '''
+    """
     #    Return a 4-tuple: (positive dumps, negative dump, values, type).
     #    "argv" is a list of arguments, or "None" for "sys.argv[1:]".
     #    '''

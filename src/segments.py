@@ -1,9 +1,9 @@
 #!/usr/bin/env python
-'''
+"""
 Created on May 2, 2013
 
 @author: David I. Urbina
-'''
+"""
 
 # imports
 import math

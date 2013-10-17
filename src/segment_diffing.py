@@ -1,9 +1,9 @@
 #!/usr/bin/env python
-'''
+"""
 Created on Jul 5, 2013
 
 Author: David I. Urbina
-'''
+"""
 
 # imports
 from __future__ import print_function
@@ -52,7 +52,7 @@ def _diff_pair_memory_segments(segment1, segment2):
 
 
 def _process_cmd_line(argv):
-    '''Segment diffing.
+    """Segment diffing.
 
 Usage:
     segment_diffing.py [-v] (-a <address> | --full) <dump>... [-n <neg_dump>]
@@ -66,7 +66,7 @@ Options:
     -h --help      Shows this message.
     -v --verbose   Shows details.
     --version      Shows the current version.
-    '''
+    """
     # initializing the parser object
     args = docopt(_process_cmd_line.__doc__, argv=argv, version=__version__)
 

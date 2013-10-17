@@ -1,9 +1,9 @@
 #!/usr/bin/env python
-'''
+"""
 Created on May 23, 2013
 
 Author: David I. Urbina
-'''
+"""
 
 # imports
 from __future__ import print_function
@@ -178,7 +178,7 @@ def _draw_graph_diffing(graph1, graph2, differences):
 
 
 def _process_cmd_line(argv):
-    '''Memory graph diffing.
+    """Memory graph diffing.
 
 Usage:
     graph_diffing.py [--verbose] <dump>... [-n <neg_dump>]
@@ -190,7 +190,7 @@ Options:
     -h --help      Shows this message.
     -v --verbose   Shows details.
     --version      Shows the current version.
-    '''
+    """
     # initializing the parser object
     args = docopt(_process_cmd_line.__doc__, argv=argv, version=__version__)
 

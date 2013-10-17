@@ -1,9 +1,9 @@
 #!/usr/bin/env python
-'''
+"""
 Created on May 2, 2013
 
 @author: David I. Urbina
-'''
+"""
 
 # imports
 import argparse
@@ -14,10 +14,9 @@ import sys
 
 
 def _process_cmd_line(argv):
-    '''
-    Returns a n-tuple: (...)
+    """Returns a n-tuple: (...)
     "argv" is a list of arguments, or "None" for "sys.argv[1:]".
-    '''
+    """
     if argv is None:
         argv = sys.argv[1:]
 

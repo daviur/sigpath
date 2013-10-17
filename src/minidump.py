@@ -1,10 +1,10 @@
 #!/usr/bin/env python
-'''
+"""
 Created on Nov 12, 2012
 
-@author: David I. Urbina
-@author: Brendan Dolan-Gavitt
-'''
+@author: David I. Urbina (refactoring)
+@author: Brendan Dolan-Gavitt (original)
+"""
 from __future__ import print_function
 from datetime import datetime, timedelta
 from time import mktime

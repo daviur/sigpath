@@ -1,9 +1,9 @@
 #!/usr/bin/env python
-'''
+"""
 Created on May 2, 2013
 
 @author: David I. Urbina
-'''
+"""
 
 # imports
 from __future__ import print_function
@@ -77,12 +77,12 @@ def export_memory_graph(filename, graph):
 
 
 def generate_graph(dump):
-    '''Builds a graph for the memory data structures present
+    """Builds a graph for the memory data structures present
     in a memory dump. It roots the graph in the modules and
     the stacks.
 
     Returns the memory graph.
-    '''
+    """
     graph = MemoryGraph()
     data_structures = _parse_all_data_structures(dump)
     logging.debug('{} Data structures parsed'.format(len(data_structures)))
@@ -122,9 +122,9 @@ class _HeapEntryFlags:
 # internal functions
 
 def _parse_all_data_structures(dump):
-    '''Parses the Heap segments present in the memory dump
+    """Parses the Heap segments present in the memory dump
     and creates a list of allocated data structures.
-    '''
+    """
     data_structures = []
     for heap in dump.heaps:
         data_structures.extend(_parse_heap_data_structures(dump, heap))
@@ -149,9 +149,9 @@ def _parse_heap_data_structures(dump, heap):
 
 
 def _parse_heap_segment_entries(dump, segment_offset):
-    '''Parse all the HEAP_ENTRY's starting at the given offset
+    """Parse all the HEAP_ENTRY's starting at the given offset
     and appends a new data structure per HEAP_ENTRY.
-    '''
+    """
     fe = struct.unpack('<I',
                        dump.data[segment_offset + 0x20: segment_offset + 0x20 + 4])[0]
     feo = _ofa(dump, fe)
@@ -178,8 +178,8 @@ def _parse_heap_segment_entries(dump, segment_offset):
 
 
 def _search_data_structure_with_address(data_structures, address):
-    '''Implements binary search over the list of data structures.
-    '''
+    """Implements binary search over the list of data structures.
+    """
     index = bisect_left(data_structures, DataStructure(address, 0, 0, []))
     ds = data_structures[index - 1]
     if ds.address <= address < ds.address + ds.size:
@@ -191,9 +191,9 @@ def _search_data_structure_with_address(data_structures, address):
 
 
 def _find_global_pointers(dump, data_structures):
-    '''Returns the list of global pointers making use of
+    """Returns the list of global pointers making use of
     the global ranges.
-    '''
+    """
     global_pointers = list()
     sorted(data_structures, key=lambda ds: ds.address)
     for m in dump.modules:
@@ -206,9 +206,9 @@ def _find_global_pointers(dump, data_structures):
 
 
 def _find_stack_pointers(dump, data_structures):
-    '''Returns the list of stack pointers making use of
+    """Returns the list of stack pointers making use of
     the stack ranges.
-    '''
+    """
     stack_pointers = list()
     for s in dump.stacks:
         for (w, o) in s.walk_by_word():
@@ -220,9 +220,9 @@ def _find_stack_pointers(dump, data_structures):
 
 
 def _find_data_structure_pointers(data_structures):
-    '''Returns the list of stack pointers making use of
+    """Returns the list of stack pointers making use of
     the stack ranges.
-    '''
+    """
     ds_pointers = list()
     for ds in data_structures:
         for (w, o) in ds.walk_by_word():
@@ -234,9 +234,9 @@ def _find_data_structure_pointers(data_structures):
 
 
 def _remove_unreachable_nodes(graph):
-    '''Remove all data structures that are not reachable
+    """Remove all data structures that are not reachable
     from modules or from stacks.
-    '''
+    """
     removed = 0
     for node in graph.nodes()[:]:
         # check if reachable from globals
@@ -250,7 +250,7 @@ def _remove_unreachable_nodes(graph):
 
 
 def _process_cmd_line(argv):
-    '''Memory graph generator.
+    """Memory graph generator.
 
 Usage:
     graph_generator.py [--verbose] <dump>
@@ -261,7 +261,7 @@ Options:
     -h --help     Shows this message.
     -v --verbose  Shows details.
     --version     Shows the current version.
-    '''
+    """
     # initializing the parser object
     args = docopt(_process_cmd_line.__doc__, argv=argv, version=__version__)
 

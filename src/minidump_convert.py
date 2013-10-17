@@ -1,9 +1,9 @@
 #!/usr/bin/env python
-'''
+"""
 Created on Nov 26, 2012
 
 @author: David I. Urbina
-'''
+"""
 from __future__ import print_function
 import logging
 import sys

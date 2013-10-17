@@ -1,8 +1,8 @@
-'''
+"""
 Created on May 22, 2013
 
 @author: David I. Urbina
-'''
+"""
 from __future__ import print_function
 from datetime import datetime
 import sys
