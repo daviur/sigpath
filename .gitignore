@@ -1,0 +1,9 @@
+# ignore all the .pyc in the src/ directory
+src/**/*.pyc
+src/*.pyc
+
+# ignore binary files
+bin
+
+# other files to ignore
+.idea
